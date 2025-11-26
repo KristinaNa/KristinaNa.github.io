@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script>
+    window.getGliaContext = function() {
+      return {
+        sessionId: "some_unique_session_ID"
+      }
+    }
+  </script>
   <script async src="https://api.kristina-nassonenko.dev.samo.io/salemove_integration.js"></script>
   <title>My GitHub Pages Site</title>
 </head>
