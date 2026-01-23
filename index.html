@@ -11,6 +11,8 @@
 
     window.addEventListener('message', (event) => {
       if (event.data.type === 'REQUEST_VISITOR_ID') {
+        console.log("GITHUB LOG: REQUEST_VISITOR_ID", event);
+
         event.source.postMessage({
           type: 'VISITOR_ID_RESPONSE',
           value: window.sm.visitorId
@@ -18,10 +20,11 @@
       }
     });
 
-    console.log("GITHUB LOG: listener here", event);
     window.addEventListener('message', (event) => {
       if (event.data.type === 'VISITOR_ID_RESPONSE') {
-        console.log('Received Visitor ID:', event.data.value);
+        console.log("GITHUB LOG: VISITOR_ID_RESPONSE", event);
+  
+        // console.log('Received Visitor ID:', event.data.value);
         // Ensure window.sm exists before assigning to avoid errors
         window.sm = window.sm || {};
         window.sm.visitorId = event.data.value;
