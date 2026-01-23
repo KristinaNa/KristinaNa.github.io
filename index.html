@@ -9,7 +9,16 @@
       }
     }
 
-    console.log("listener here");
+    window.addEventListener('message', (event) => {
+      if (event.data.type === 'REQUEST_VISITOR_ID') {
+        event.source.postMessage({
+          type: 'VISITOR_ID_RESPONSE',
+          value: window.sm.visitorId
+        }, event.origin);
+      }
+    });
+
+    console.log("GITHUB LOG: listener here", event);
     window.addEventListener('message', (event) => {
       if (event.data.type === 'VISITOR_ID_RESPONSE') {
         console.log('Received Visitor ID:', event.data.value);
@@ -19,7 +28,7 @@
       }
     });
 
-    console.log("post message");
+    console.log("GITHUB LOG: post message");
     window.parent.postMessage({
       type: 'REQUEST_VISITOR_ID'
     }, '*');
