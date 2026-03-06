@@ -8,21 +8,21 @@
     //     idToken: "eyJraWQiOiIxMjMiLCJhbGciOiJFUzI1NiJ9.eyJlbWFpbCI6ImphbmUuZG9lQGVtYWlsLmNvbSIsIm5hbWUiOiJKYW5lIERvZSIsImdpdmVuX25hbWUiOiJKYW5lIiwiZmFtaWx5X25hbWUiOiJEb2UiLCJzdWIiOiJqYW5lLmRvZUBlbWFpbC5jb206SmFuZURvZSIsImxvb2t1cF9pZCI6ImphbmUuZG9lIiwiaWF0IjoxNzY0Njg3MTg4LCJleHAiOjE3NjQ2OTA3ODh9.oGJMwUknTJgp4Ybz4GG5A9tKU3ba7ufK96mHgyDXlQcQu50Z6rfhGmm8eXF8tHDQEihfHCFxMDcHg5iHV3jGmw"
     //   }
     // }
-    window.addEventListener('message', (event) => {
-      if (event.data.type === 'VISITOR_ID_RESPONSE') {
-        console.log("GITHUB LOG: VISITOR_ID_RESPONSE", event);
+    // window.addEventListener('message', (event) => {
+    //   if (event.data.type === 'VISITOR_ID_RESPONSE') {
+    //     console.log("GITHUB LOG: VISITOR_ID_RESPONSE", event);
   
-        // console.log('Received Visitor ID:', event.data.value);
-        // Ensure window.sm exists before assigning to avoid errors
-        window.sm = window.sm || {};
-        window.sm.visitorId = event.data.value;
-      }
-    });
+    //     // console.log('Received Visitor ID:', event.data.value);
+    //     // Ensure window.sm exists before assigning to avoid errors
+    //     window.sm = window.sm || {};
+    //     window.sm.visitorId = event.data.value;
+    //   }
+    // });
 
-    console.log("GITHUB LOG: post message");
-    window.parent.postMessage({
-      type: 'REQUEST_VISITOR_ID'
-    }, event.origin);
+    // console.log("GITHUB LOG: post message");
+    // window.parent.postMessage({
+    //   type: 'REQUEST_VISITOR_ID'
+    // }, event.origin);
 
     // window.addEventListener('message', (event) => {
     //   if (event.data.type === 'REQUEST_VISITOR_ID') {
